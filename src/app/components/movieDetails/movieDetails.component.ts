@@ -6,6 +6,7 @@ import {
   Character,
   MovieDetailsService
 } from './services/movieDetails.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'movie-details',
@@ -13,7 +14,7 @@ import {
   styleUrls: ['./movieDetails.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  movie!: Film;
+  movie$!: Observable<Film>;
   characters: Character[] = [];
   constructor(
     private readonly moviesSvc: MoviesService,
@@ -24,20 +25,23 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovie();
-    this.getCharacterName();
   }
   getMovie(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.moviesSvc.getMovieDetails(id).subscribe(film => {
-      this.movie = film;
-			for(const character of film.characters){
-				this.movieDetailsSvc
-					.getCharacterName(character)
-					.subscribe(character => {
-						this.characters.unshift(character);
-					});
+    this.movie$ = this.moviesSvc.getMovieDetails(id);
+		this.movie$.subscribe(
+			film => {
+				for(const character of film.characters){
+					this.movieDetailsSvc
+						.getCharacterName(character)
+						.subscribe(character => {
+							this.characters.unshift(character);
+						});
+				}
 			}
-    });
+
+		)
+
+		}
   }
-  getCharacterName(): void {}
-}
+

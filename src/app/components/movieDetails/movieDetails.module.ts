@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
+import { LoadingSpinnerModule } from "../loadingSpinner/loadingSpinner.module";
 import { MovieDetailsComponent } from "./movieDetails.component";
 
 @NgModule({
@@ -9,7 +10,8 @@ import { MovieDetailsComponent } from "./movieDetails.component";
 	],
 	imports: [
 		BrowserModule,
-		RouterModule
+		RouterModule,
+		LoadingSpinnerModule
 	],
 	exports: [
 		MovieDetailsComponent

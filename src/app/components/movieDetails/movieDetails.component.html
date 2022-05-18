@@ -1,22 +1,23 @@
-<div *ngIf="movie" class="movie-details-container">
-  <h1 class="title">{{ movie.title }}</h1>
+<div *ngIf="movie$ | async as film" class="movie-details-container">
+  <h1 class="title">{{ film.title}}</h1>
   <div class="detail-item">
-    <h4>Release date: {{ movie.release_date }}</h4>
+    <h4>Release date: {{ film.release_date}}</h4>
   </div>
   <div class="detail-item">
-    <h4>Episode: {{ movie.episode_id }}</h4>
+    <h4>Episode: {{ film.episode_id}}</h4>
   </div>
   <div class="detail-item">
-    <h4>Director: {{ movie.director }}</h4>
+    <h4>Director: {{ film.director}}</h4>
   </div>
   <div class="detail-item">
-    <h4>Producer: {{ movie.producer }}</h4>
+    <h4>Producer: {{ film.producer}}</h4>
   </div>
   <h4 class="detail-item">Opening crawl:</h4>
-  <p>{{ movie.opening_crawl }}</p>
+  <p>{{ film.opening_crawl}}</p>
+
 
   <h4 class="detail-item">Characters:</h4>
-  <div *ngIf="characters" class="characters-container">
+	<div *ngIf="characters" class="characters-container">
     <div *ngFor="let character of characters">
       <div class="character-button">
         <div class="text-placing">
@@ -26,3 +27,4 @@
     </div>
   </div>
 </div>
+<loading-spinner *ngIf="(movie$ | async) == null"></loading-spinner>
