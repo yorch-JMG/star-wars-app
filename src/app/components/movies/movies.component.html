@@ -1,24 +1,24 @@
 <div class="movies-container">
   <h1 class="title">Movies</h1>
+	<p>Episode or release date:</p>
   <select
     class="select-input"
     #optionSelection
     [(ngModel)]="optionSelected"
-    (change)="onOptionsSelected(optionSelection.value, orderSelection.value)"
+    (change)="onOptionsSelected(optionSelection.value, releaseOptionSelection.value)"
   >
-	<option value="0">Release date</option>
-	<option value="1">Episode Id</option>
+	<option value="0">Episode</option>
+    <option value="1">Release date</option>
   </select>
   <select
     class="select-input"
-    #orderSelection
-    [(ngModel)]="ascOrDesc"
-    (change)="onOptionsSelected(optionSelection.value ,orderSelection.value)"
+    #releaseOptionSelection
+    [(ngModel)]="releaseOptionSelected"
+    (change)="onOptionsSelected(optionSelection.value, releaseOptionSelection.value)"
   >
-	<option value='0'>Ascendant</option>
-		<option value='1'>Descendant</option>
+    <option value="0">Ascendant</option>
+    <option value="1">Descendant</option>
   </select>
-  <p>{{ optionSelected }}</p>
   <ng-container *ngFor="let movie of movies$ | async">
     <div class="movie-container">
       <movie [movie]="movie"></movie>

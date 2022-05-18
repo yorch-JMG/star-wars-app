@@ -25,16 +25,22 @@ export interface Film {
 export class MoviesService {
   constructor(private readonly http: HttpClient) {}
 
-	getAllMovies(selectedOption: string, order: string): Observable<Film[]> {
+	getAllMovies(optionSelection: string, orderSelection: string): Observable<Film[]> {
     return this.http.get<any>(environment.api + 'films').pipe(
       pluck('results'),
       map(results =>
 					results.sort().sort((a: Film, b: Film) => {
-						if(selectedOption === '0' && order === '1'){
-							return b.episode_id - a.episode_id;
-						}	
-						else{
+						if(optionSelection === '0' && orderSelection === '0'){
 							return a.episode_id - b.episode_id;
+						}	
+						else if(optionSelection === '0' && orderSelection === '1'){
+							return b.episode_id - a.episode_id;
+						}
+						else if(optionSelection === '1' && orderSelection === '0'){
+							return a.release_date.localeCompare(b.release_date) || b.episode_id - a.episode_id;
+						}
+						else {
+							return b.release_date.localeCompare(a.release_date) || b.episode_id - a.episode_id;
 						}
 					})
       )
