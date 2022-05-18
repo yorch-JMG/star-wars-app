@@ -46,4 +46,8 @@ export class MoviesService {
       )
     );
   }
+
+	getMovieDetails(id: number) : Observable<Film>{
+		return this.http.get<Film>(environment.api+'films/'+ id)
+	}
 }

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MovieModule } from './components/movie/movie.module';
+import { MovieDetailsModule } from './components/movieDetails/movieDetails.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MovieModule } from './components/movie/movie.module';
 		AppRoutingModule,
 		HttpClientModule,
 		FormsModule,
-		MovieModule
+		MovieModule,
+		MovieDetailsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
