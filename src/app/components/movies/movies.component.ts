@@ -11,6 +11,7 @@ import { Film, MoviesService } from './services/movies.service';
 export class MoviesComponent {
 	optionSelected : string = '0';
 	releaseOptionSelected : string = '0';
+	moviesLoaded : boolean = false;
 
 	movies$ !: Observable<Film[]>;
 	onOptionsSelected(optionSelection: string, orderSelection: string){
@@ -18,5 +19,6 @@ export class MoviesComponent {
 	}
   constructor(private readonly moviesSvc: MoviesService) {
 		this.movies$ = this.moviesSvc.getAllMovies(this.optionSelected, this.releaseOptionSelected);
+		if(this.movies$) this.moviesLoaded = true;
   }
 }

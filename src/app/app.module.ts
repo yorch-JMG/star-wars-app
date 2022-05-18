@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MovieModule } from './components/movie/movie.module';
 import { MovieDetailsModule } from './components/movieDetails/movieDetails.module';
+import { LoadingSpinnerModule } from './components/loadingSpinner/loadingSpinner.module'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MovieDetailsModule } from './components/movieDetails/movieDetails.modul
 		HttpClientModule,
 		FormsModule,
 		MovieModule,
-		MovieDetailsModule
+		MovieDetailsModule,
+		LoadingSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

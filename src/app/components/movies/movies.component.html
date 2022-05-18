@@ -1,4 +1,4 @@
-<div class="movies-container">
+<div class="title-container">
   <h1 class="title">Movies</h1>
   <h3>Filter by episode or release date!</h3>
   <select
@@ -23,9 +23,14 @@
     <option value="0">Ascendant</option>
     <option value="1">Descendant</option>
   </select>
-  <ng-container *ngFor="let movie of movies$ | async">
+</div>
+<div class="movies-container">
+  <ng-container
+    *ngFor="let movie of movies$ | async"
+  >
     <div class="movie-container">
       <movie [movie]="movie"></movie>
     </div>
   </ng-container>
+	<loading-spinner *ngIf="(movies$ | async) == null"></loading-spinner>
 </div>
