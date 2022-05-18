@@ -1,20 +1,24 @@
 <div class="movies-container">
   <h1 class="title">Movies</h1>
-	<p>Episode or release date:</p>
+  <h3>Filter by episode or release date!</h3>
   <select
-    class="select-input"
+    class="option-selection-input"
     #optionSelection
     [(ngModel)]="optionSelected"
-    (change)="onOptionsSelected(optionSelection.value, releaseOptionSelection.value)"
+    (change)="
+      onOptionsSelected(optionSelection.value, releaseOptionSelection.value)
+    "
   >
-	<option value="0">Episode</option>
+    <option value="0">Episode</option>
     <option value="1">Release date</option>
   </select>
   <select
-    class="select-input"
+    class="order-selection-input"
     #releaseOptionSelection
     [(ngModel)]="releaseOptionSelected"
-    (change)="onOptionsSelected(optionSelection.value, releaseOptionSelection.value)"
+    (change)="
+      onOptionsSelected(optionSelection.value, releaseOptionSelection.value)
+    "
   >
     <option value="0">Ascendant</option>
     <option value="1">Descendant</option>
