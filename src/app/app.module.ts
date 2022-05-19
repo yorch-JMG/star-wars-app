@@ -12,6 +12,7 @@ import { MovieModule } from './components/movie/movie.module';
 import { MovieDetailsModule } from './components/movieDetails/movieDetails.module';
 import { LoadingSpinnerModule } from './components/loadingSpinner/loadingSpinner.module'; 
 import { CharacterDetailsModule } from './components/characterDetails/characterDetails.module';
+import { BreadcrumbsModule } from './components/breadcrumbs/breadcrumbs.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CharacterDetailsModule } from './components/characterDetails/characterD
 		MovieModule,
 		MovieDetailsModule,
 		LoadingSpinnerModule,
-		CharacterDetailsModule
+		CharacterDetailsModule,
+		BreadcrumbsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

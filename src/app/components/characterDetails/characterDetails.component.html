@@ -15,11 +15,11 @@
 	<button (click)=toggleDisplay() class="homeworld-label">Homeworld</button>
   <div [hidden]="!showHomeworldInfo" class="homeworld-info" *ngIf="homeworld$ | async as planet">
     <h3>
-      {{ planet.name }}
+      Name: {{ planet.name }}
     </h3>
-    <h4>{{ planet.population }}</h4>
-    <h4>{{ planet.climate }}</h4>
-    <h4>{{ planet.gravity }}</h4>
+    <h4>Population: {{ planet.population }}</h4>
+    <h4>Climate: {{ planet.climate }}</h4>
+    <h4>Gravity: {{ planet.gravity }}</h4>
   </div>
   <h4 class="related-films-label">Related Films</h4>
   <div *ngIf="relatedFilms" class="related-films">

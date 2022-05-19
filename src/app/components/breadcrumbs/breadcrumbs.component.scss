@@ -1,0 +1,16 @@
+.breadcrumbs-container {
+	margin-left: 1rem;
+	margin-top: 1rem;
+}
+
+.breadcrumb-item {
+	padding-left: 0.2rem;
+	text-decoration: none;
+}
+.breadcrumb-item-active {
+	padding-left: 0.2rem;
+}
+.breadcrumb-list {
+	display: flex;
+	list-style-type: none;
+}

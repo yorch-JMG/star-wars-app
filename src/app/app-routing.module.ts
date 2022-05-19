@@ -6,15 +6,18 @@ import { MoviesComponent } from './components/movies/movies.component';
 const routes: Routes = [
   {
     path: 'movies',
-    component: MoviesComponent
+		component: MoviesComponent,
+		data: {title: "Movies"}
   },
   {
 		path: 'movies/:id',
-    component: MovieDetailsComponent
+		component: MovieDetailsComponent,
+		data: {title: "Movie details"}
   },
   {
 		path: 'people/:id',
-    component: CharacterDetailsComponent
+    component: CharacterDetailsComponent,
+		data: {title: "Character details"}
   },
   {
     path: '',
