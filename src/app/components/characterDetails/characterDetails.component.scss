@@ -1,0 +1,54 @@
+.related-films {
+	display: none;
+}
+
+.related-films-label:hover + .related-films {
+	display: block;
+}
+
+.character-details-container {
+	padding: 1rem 1rem 1rem;
+}
+.title {
+	font-size: 3rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.detail-item {
+	padding: 0.5rem 0rem 0.5rem;
+}
+
+.characters-container {
+	max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.character-button {
+  color: white;
+  padding: 1rem;
+  height: 4rem;
+	position: relative;
+	border: yellow solid 1px;
+}
+
+.text-placing {
+	margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+@media (min-width: 600px) {
+  .characters-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .characters-container { grid-template-columns: repeat(3, 1fr); }
+}
+

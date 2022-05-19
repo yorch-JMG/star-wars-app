@@ -12,8 +12,8 @@
   <div class="detail-item">
     <h4>Eye color: {{ person.eye_color }}</h4>
   </div>
-  <h4 class="detail-item">Home world:</h4>
-  <div *ngIf="homeworld$ | async as planet">
+	<button (click)=toggleDisplay() class="homeworld-label">Homeworld</button>
+  <div [hidden]="!showHomeworldInfo" class="homeworld-info" *ngIf="homeworld$ | async as planet">
     <h3>
       {{ planet.name }}
     </h3>
@@ -21,8 +21,9 @@
     <h4>{{ planet.climate }}</h4>
     <h4>{{ planet.gravity }}</h4>
   </div>
-  <div *ngIf="relatedFilms" class="characters-container">
-    <div *ngFor="let film of relatedFilms">
+  <h4 class="related-films-label">Related Films</h4>
+  <div *ngIf="relatedFilms" class="related-films">
+    <div class="homeworldInfo" *ngFor="let film of relatedFilms">
       <a class="link" routerLink="/films/{{ film.url.split('/')[5] }}">
         <div class="character-button">
           <div class="text-placing">
@@ -32,6 +33,5 @@
       </a>
     </div>
   </div>
-
 </div>
 <loading-spinner *ngIf="(character$ | async) == null"></loading-spinner>

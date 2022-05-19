@@ -15,6 +15,8 @@ export class CharacterDetailsComponent implements OnInit {
   character$!: Observable<Character>;
   homeworld$!: Observable<Homeworld>;
   relatedFilms: Film[] = [];
+	showHomeworldInfo: boolean = false
+
   constructor(
     private readonly characterDetailsSvc: CharacterDetailsService,
     private route: ActivatedRoute,
@@ -25,6 +27,11 @@ export class CharacterDetailsComponent implements OnInit {
     this.getCharacter();
     this.getHomeworld();
   }
+
+	toggleDisplay() {
+		this.showHomeworldInfo = !this.showHomeworldInfo;
+	}
+
   getCharacter(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.character$ = this.characterDetailsSvc.getCharacter(id);
