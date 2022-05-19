@@ -45,7 +45,6 @@ export class CharacterDetailsComponent implements OnInit {
   }
   getHomeworld(): void {
     this.character$.subscribe(character => {
-			console.log(character)
       this.homeworld$ = this.characterDetailsSvc.getHomeworld(
         character.homeworld
       );
