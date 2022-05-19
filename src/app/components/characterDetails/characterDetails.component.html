@@ -12,22 +12,32 @@
   <div class="detail-item">
     <h4>Eye color: {{ person.eye_color }}</h4>
   </div>
-	<button (click)=toggleDisplay() class="homeworld-label">Homeworld</button>
-  <div [hidden]="!showHomeworldInfo" class="homeworld-info" *ngIf="homeworld$ | async as planet">
-    <h3>
-      Name: {{ planet.name }}
-    </h3>
+  <div (click)="toggleDisplay()" class="detail-item tooltip">
+    Homeworld
+    <span class="tooltiptext"
+      >Click on me to view data about the homeworld!</span
+    >
+  </div>
+  <div
+    [hidden]="!showHomeworldInfo"
+    class="homeworld-info"
+    *ngIf="homeworld$ | async as planet"
+  >
+    <h4>Name: {{ planet.name }}</h4>
     <h4>Population: {{ planet.population }}</h4>
     <h4>Climate: {{ planet.climate }}</h4>
     <h4>Gravity: {{ planet.gravity }}</h4>
   </div>
-  <h4 class="related-films-label">Related Films</h4>
+  <h4 class="related-films-label detail-item">
+    Related Films
+    <p>(hover on me)</p>
+  </h4>
   <div *ngIf="relatedFilms" class="related-films">
-    <div class="homeworldInfo" *ngFor="let film of relatedFilms">
+    <div *ngFor="let film of relatedFilms">
       <a class="link" routerLink="/films/{{ film.url.split('/')[5] }}">
-        <div class="character-button">
+        <div class="related-film-card">
           <div class="text-placing">
-            <h5>{{ film.title }}</h5>
+            <h4>{{ film.title }}</h4>
           </div>
         </div>
       </a>
