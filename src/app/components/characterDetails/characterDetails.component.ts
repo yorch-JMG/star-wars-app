@@ -14,7 +14,7 @@ import { Film } from '../movies/services/movies.service';
 export class CharacterDetailsComponent implements OnInit {
   character$!: Observable<Character>;
   homeworld$!: Observable<Homeworld>;
-  relatedFilms!: Film[];
+  relatedFilms: Film[] = [];
   constructor(
     private readonly characterDetailsSvc: CharacterDetailsService,
     private route: ActivatedRoute,
@@ -23,7 +23,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCharacter();
-		this.getHomeworld()
+    this.getHomeworld();
   }
   getCharacter(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -36,9 +36,12 @@ export class CharacterDetailsComponent implements OnInit {
       }
     });
   }
-	getHomeworld(): void {
-		this.character$.subscribe(character => {
-			this.homeworld$ = this.characterDetailsSvc.getHomeworld(character.homeworld)
-		})
-	}
+  getHomeworld(): void {
+    this.character$.subscribe(character => {
+			console.log(character)
+      this.homeworld$ = this.characterDetailsSvc.getHomeworld(
+        character.homeworld
+      );
+    });
+  }
 }
