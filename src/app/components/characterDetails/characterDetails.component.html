@@ -1,0 +1,18 @@
+<div *ngIf="character$ | async as person" class="character-details-container">
+  <h1 class="title">{{ person.name }}</h1>
+  <div class="detail-item">
+    <h4>Birth date: {{ person.birth_year }}</h4>
+  </div>
+  <div class="detail-item">
+    <h4>Gender: {{ person.gender }}</h4>
+  </div>
+  <div class="detail-item">
+    <h4>Hair color: {{ person.hair_color }}</h4>
+  </div>
+  <div class="detail-item">
+    <h4>Eye color: {{ person.eye_color }}</h4>
+  </div>
+  <h4 class="detail-item">Home world:</h4>
+  <p *ngIf="homeworld$ | async as planet">{{ planet.name }}</p>
+</div>
+<loading-spinner *ngIf="(character$ | async) == null"></loading-spinner>

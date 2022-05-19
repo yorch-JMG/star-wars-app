@@ -29,19 +29,14 @@ export class MovieDetailsComponent implements OnInit {
   getMovie(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.movie$ = this.moviesSvc.getMovieDetails(id);
-		this.movie$.subscribe(
-			film => {
-				for(const character of film.characters){
-					this.movieDetailsSvc
-						.getCharacterName(character)
-						.subscribe(character => {
-							this.characters.unshift(character);
-						});
-				}
-			}
-
-		)
-
-		}
+    this.movie$.subscribe(film => {
+      for (const character of film.characters) {
+        this.movieDetailsSvc
+          .getCharacterName(character)
+          .subscribe(character => {
+            this.characters.unshift(character);
+          });
+      }
+    });
   }
-
+}

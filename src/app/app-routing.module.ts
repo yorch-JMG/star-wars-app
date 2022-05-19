@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CharacterDetailsComponent } from './components/characterDetails/characterDetails.component';
 import { MovieDetailsComponent } from './components/movieDetails/movieDetails.component';
 import { MoviesComponent } from './components/movies/movies.component';
 const routes: Routes = [
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
 		path: 'movies/:id',
     component: MovieDetailsComponent
+  },
+  {
+		path: 'people/:id',
+    component: CharacterDetailsComponent
   },
   {
     path: '',

@@ -11,6 +11,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MovieModule } from './components/movie/movie.module';
 import { MovieDetailsModule } from './components/movieDetails/movieDetails.module';
 import { LoadingSpinnerModule } from './components/loadingSpinner/loadingSpinner.module'; 
+import { CharacterDetailsModule } from './components/characterDetails/characterDetails.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoadingSpinnerModule } from './components/loadingSpinner/loadingSpinner
 		FormsModule,
 		MovieModule,
 		MovieDetailsModule,
-		LoadingSpinnerModule
+		LoadingSpinnerModule,
+		CharacterDetailsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
